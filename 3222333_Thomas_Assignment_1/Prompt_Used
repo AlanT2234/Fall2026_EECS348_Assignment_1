@@ -1,0 +1,14 @@
+#Prompt used to generate a secret number guesser on C.
+
+Write a C program that picks a secret number between 1 and 10.
+The user gets up to 3 tries to guess the number.
+Requirements
+• Use a fixed secret number (for example, 7).
+• Use printf to prompt the user and scanf to read their
+guess.
+• Use a while or for loop to let the user guess up to 3 times.
+• Use if-else statements to check if the guess is too high,
+too low, or correct.
+• Stop the loop immediately if the user guesses the correct
+number.
+• Print a final win or lose message.
