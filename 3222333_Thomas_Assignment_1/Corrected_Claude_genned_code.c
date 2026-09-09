@@ -24,8 +24,8 @@ int main() {
 
     // Main game loop: runs at most "attempts" times.
     // "i" also doubles as the attempt number shown to the player.
-    for (int i = 1; i <= attempts; i++) {   
-        printf("Attempt %d: Enter your guess: ", i);
+    for (int i = 1; i <= attempts; i++) {   //Start of for loop that takes the attemps
+        printf("Attempt %d: Enter your guess: ", i); //user input for number
 
         int result = scanf("%d", &guess); // scanf returns the number of items it successfully read.
 	// We expect 1 (one integer). Anything else means the read failed.
@@ -49,7 +49,7 @@ int main() {
         if (result != 1) { //Start of error case 2 loop
             fprintf(stderr,
                 "Error: Attempt %d expects a whole number, but non-numeric input was entered. "
-                "Please type digits only (e.g., 5), then press Enter.\n", i);
+                "Please type digits only (e.g., 5), then press Enter.\n", i); //Printing of error message
 
             // scanf leaves the bad characters sitting in the input buffer.
             // If we don't clear them, the next scanf call will immediately
@@ -67,7 +67,7 @@ int main() {
             fprintf(stderr,
                 "Error: %d is outside the allowed range. "
                 "Your guess must be between 1 and 10 (inclusive).\n",
-                guess);
+                guess); //Prints an appropriate error message
             i--;      // same idea: don't penalize the player for invalid input
             continue;
         } //end of error case 3 loop
@@ -76,11 +76,13 @@ int main() {
         if (guess == secret) { //start of game logic loop
             won = 1;  // mark as won...
             break;    // ...and exit the loop immediately (no need to keep guessing)
-        } else if (guess < secret) {
+        } //end of if loop
+		else if (guess < secret) { //start of else if loop
             printf("Too low! Try a higher number.\n");
-        } else {
+        } //end of else if loop
+		else { //start of else loop
             printf("Too high! Try a lower number.\n");
-        }
+        } //end of else loop
         // If neither error case nor a correct guess, the loop simply
         // continues to the next attempt (i increments normally).
     } //end of game logic loop
@@ -88,11 +90,12 @@ int main() {
     // After the loop: report the final outcome based on the "won" flag.
     // This runs whether the loop ended via break (won) or ran out
     // of attempts (loop condition false).
-    if (won) {
-        printf("Congratulations! You guessed the secret number %d correctly!\n", secret);
-    } else {
-        printf("Sorry, you're out of tries. The secret number was %d.\n", secret);
-    } 
+    if (won) { //start of if loop
+        printf("Congratulations! You guessed the secret number %d correctly!\n", secret); //Print victory message when won 
+    } //end of if loop
+	else { //start of else loop
+        printf("Sorry, you're out of tries. The secret number was %d.\n", secret); //Prints the failure message when attemps are exhausted
+    } //end of else loop
 
     return 0; // 0 signals successful/normal program termination
 } //end of the main loop
